@@ -31,6 +31,9 @@ const App = () => {
 
     const gatewayUrl = process.env.REACT_APP_GATEWAY_URL
 
+      console.log('gatewayUrl: ', gatewayUrl)
+      console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
+
     axios.get(`${gatewayUrl}/dog/all`)
         .then(res => {
           setDogs(res.data)
