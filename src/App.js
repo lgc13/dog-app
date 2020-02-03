@@ -10,7 +10,6 @@ const App = () => {
   useEffect(() => {
     axios.get('https://dog.ceo/api/breeds/image/random')
         .then((response) => {
-          console.log('sasha.data.message: ',  response.data.message)
           setDoggo(response.data.message)
         })
         .catch((error) => {
@@ -27,15 +26,13 @@ const App = () => {
             "x-rapidapi-key": "dc4c55f586msh375fc415a7750c3p163853jsnba29855ee4cb",
           }
         }).then(response => {
-      console.log('response: ', response.data)
-      setLove(response.data)
-    }).catch(err => {
-      console.log('err: ', err)
-    })
+          setLove(response.data)
+        })
 
-    axios.get('https://dog-spring-service.herokuapp.com/dog/all')
+    const gatewayUrl = process.env.REACT_APP_GATEWAY_URL
+
+    axios.get(`${gatewayUrl}/dog/all`)
         .then(res => {
-          console.log('res: ', res)
           setDogs(res.data)
         })
 
