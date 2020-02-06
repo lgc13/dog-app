@@ -34,10 +34,20 @@ When using env variables (for example, for URLs), you can use the following:
 
 ```
 # in .env
+REACT_APP_GATEWAY_URL=https://some-gateway-url
+```
+
+3. Add more .env files (different environments)
+
+```
+# .env
+REACT_APP_GATEWAY_URL=https://some-gateway-url
+
+# .env.local
 REACT_APP_GATEWAY_URL=http://localhost:8080
 ```
 
-3. Rerun your app with the .env file you want
+4. Rerun your app with the .env file you want
 
 ```bash
 yarn start .env
@@ -45,7 +55,7 @@ yarn start .env
 yarn start .env.local
 ```
 
-4. Create custom app scripts in your package.json
+5. Create custom app scripts in your package.json
 
 ```json
 {
