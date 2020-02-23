@@ -21,7 +21,7 @@ const App = () => {
     console.log('gatewayUrl: ', gatewayUrl)
     console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
 
-    axios.get(`${gatewayUrl}/api/dog/all`).then(res => {
+    axios.get(`${gatewayUrl}/api/dogs`).then(res => {
       setDogs(res.data)
     })
   }, [])
