@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import './App.css'
+import axios from 'axios'
 
 const App = () => {
-  const [doggo, setDoggo] = useState(null);
-  const [dogs, setDogs] = useState([]);
+  const [doggo, setDoggo] = useState(null)
+  const [dogs, setDogs] = useState([])
 
   useEffect(() => {
     axios
       .get('https://dog.ceo/api/breeds/image/random')
       .then(response => {
-        setDoggo(response.data.message);
+        setDoggo(response.data.message)
       })
       .catch(error => {
-        console.log('Error fetching dog picture: ', error);
-      });
+        console.log('Error fetching dog picture: ', error)
+      })
 
-    const gatewayUrl = process.env.REACT_APP_GATEWAY_URL;
+    const gatewayUrl = process.env.REACT_APP_GATEWAY_URL
 
-    console.log('gatewayUrl: ', gatewayUrl);
-    console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
+    console.log('gatewayUrl: ', gatewayUrl)
+    console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
 
     axios.get(`${gatewayUrl}/api/dog/all`).then(res => {
-      setDogs(res.data);
-    });
-  }, []);
+      setDogs(res.data)
+    })
+  }, [])
 
   return (
     <div className="App">
@@ -39,7 +39,7 @@ const App = () => {
           </div>
         ))}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
