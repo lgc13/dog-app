@@ -11,13 +11,15 @@
     "func-names": "off",
     "curly": 2,
     "camelcase": 2,
+    "react/jsx-props-no-spreading": "off",
+    "react/button-has-type": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-unused-vars": [
       "error",
       { "vars": "all", "args": "none", "ignoreRestSiblings": true }
     ],
     "no-use-before-define": "off",
-    "react/prop-types": [2, { "ignore": ["children"] }],
+    "react/prop-types": [0, { "ignore": ["children"] }],
     "import/prefer-default-export": "off",
     "no-console": "off",
     "import/no-unresolved": [2, { "ignore": [".png"] }],
@@ -41,6 +43,7 @@
     "import/first": "off"
   },
   "globals": {
+    "document": false,
     "fetch": false,
     "$PropertyType": true,
     "syncPromise": true,
@@ -52,7 +55,9 @@
     "__DEV__": true
   },
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true,
+    "node": true
   },
   "plugins": ["react", "prettier"]
 }
