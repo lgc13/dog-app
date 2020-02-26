@@ -7,46 +7,52 @@
   ],
   "parser": "babel-eslint",
   "rules": {
+    "require-yield": "off",
+    "func-names": "off",
     "curly": 2,
     "camelcase": 2,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": false }],
+    "no-unused-vars": [
+      "error",
+      { "vars": "all", "args": "none", "ignoreRestSiblings": true }
+    ],
     "no-use-before-define": "off",
-    "react/prop-types": [0, { "ignore": ["children"] }],
+    "react/prop-types": [2, { "ignore": ["children"] }],
     "import/prefer-default-export": "off",
-    "no-console": "warn",
-    "import/no-unresolved": [2, { "ignore" : [".png"]} ],
+    "no-console": "off",
+    "import/no-unresolved": [2, { "ignore": [".png"] }],
     "react/require-default-props": "off",
     "react/no-unescaped-entities": "off",
-    "react/forbid-prop-types": "off",
     "no-multi-spaces": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/no-array-index-key": "off",
     "no-nested-ternary": 2,
+    "prefer-promise-reject-errors": "off",
     "no-underscore-dangle": "off",
-    "max-len": ["error", { "code": 100 }],
-    "prettier/prettier": ["error", {
-      "printWidth": 100,
-      "singleQuote": true,
-      "trailingComma": "all",
-      "semi": false
-    }],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "semi": false
+      }
+    ],
     "import/no-named-as-default": "off",
-    "no-plusplus": "off",
-    "jsx-a11y/anchor-is-valid": [ "error", {
-      "components": [ "Link" ],
-      "specialLink": [ "to", "hrefLeft", "hrefRight" ],
-      "aspects": [ "noHref", "invalidHref", "preferButton" ]
-    }]
+    "import/first": "off"
   },
   "globals": {
-    "fetch": true,
-    "window": true,
-    "navigator": true,
-    "URL": true,
-    "document": true
+    "fetch": false,
+    "$PropertyType": true,
+    "syncPromise": true,
+    "createPromise": true,
+    "mount": true,
+    "snapshot": true,
+    "text": true,
+    "suppressErrorLogs": true,
+    "__DEV__": true
   },
-  "plugins": [
-    "react",
-    "prettier"
-  ]
+  "env": {
+    "jest": true
+  },
+  "plugins": ["react", "prettier"]
 }
