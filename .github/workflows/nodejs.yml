@@ -18,10 +18,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install -g yarn
-    - name:  yarn install, lint, and test
-      run: |
-        yarn install
-        yarn lint
-        yarn test
+    - name: Install
+      run: yarn install
+    - name: Lint
+      run: yarn lint
+    - name: Test
+      run: yarn test
       env:
         CI: true
