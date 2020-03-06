@@ -20,11 +20,11 @@ Example:
 axios.get('https://someUrl.com').then(response => console.log(response.data))
 ```
 
-### Adding ENV files, and env variables
+## Adding ENV files, and env variables
 
 When using env variables (for example, for URLs), you can use the following:
 
-~~I. Use different env files~~ - this violates the 12-factor's rule on [Config](https://12factor.net/config) - read step II 
+### ~~I. Use different env files~~ - this violates the 12-factor's rule on [Config](https://12factor.net/config) - read step II 
    
    1. Create a .env file in the root dir (not in src/)
    
@@ -63,11 +63,11 @@ When using env variables (for example, for URLs), you can use the following:
      }
    }
    ```
-II. Pass in env variables on build
+### II. Pass in env variables on build
 
 You can pass it in through IntelliJ run config
 
-### Redux
+## Redux
 
 ```shell script
 # add needed dependencies
@@ -121,7 +121,7 @@ const App = () => (
 export default App
 ```
 
-#### Local storage
+### Local storage
 
 - You can add localStorage to redux:
 
@@ -173,7 +173,7 @@ export const saveState = state => {
 }
 ```
 
-### React Router
+## React Router
 
 ```shell script
 # add dependency
