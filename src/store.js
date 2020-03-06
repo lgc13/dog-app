@@ -1,5 +1,4 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
-import thunkMiddleware from 'redux-thunk'
+import { combineReducers, createStore } from 'redux'
 import { loadState, saveState } from './localStorage'
 
 const isLoggedIn = (state = false, action) => {
@@ -18,14 +17,15 @@ const rootReducer = combineReducers({
 })
 
 const persistedState = loadState()
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const store = createStore(rootReducer, persistedState)
+const store = createStore(
+  rootReducer,
+  persistedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+)
 
 store.subscribe(() => {
-  saveState({
-    isLoggedIn: store.getState().isLoggedIn,
-  })
+  saveState(store.getState())
 })
 
 export default store
