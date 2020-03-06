@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 const DogScreen = () => {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const [doggo, setDoggo] = useState(null)
   const [dogs, setDogs] = useState([])
 
@@ -25,9 +29,13 @@ const DogScreen = () => {
     })
   }, [])
 
+  const handleLogoutClick = () => {
+    console.log('Logging out...')
+    dispatch({ type: 'LOGOUT' })
+  }
+
   return (
     <div className="App">
-      <p>Hello</p>
       <img src={doggo} alt="doggo" height={300} />
       <div>Dog service response:</div>
       {dogs.length > 0 &&
@@ -37,6 +45,7 @@ const DogScreen = () => {
             <p>Dog color: {dog.color}</p>
           </div>
         ))}
+      <button onClick={handleLogoutClick}>LOG OUT</button>
     </div>
   )
 }
