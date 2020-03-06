@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 
 const DogScreen = () => {
   const dispatch = useDispatch()
-  const history = useHistory()
   const [doggo, setDoggo] = useState(null)
   const [dogs, setDogs] = useState([])
 
