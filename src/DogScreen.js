@@ -22,9 +22,14 @@ const DogScreen = () => {
     console.log('gatewayUrl: ', gatewayUrl)
     console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
 
-    axios.get(`${gatewayUrl}/api/dogs`).then(res => {
-      setDogs(res.data)
-    })
+    axios
+      .get(`${gatewayUrl}/api/dogs`)
+      .then(res => {
+        setDogs(res.data)
+      })
+      .catch(e => {
+        console.log('Error getting dogs: ', e)
+      })
   }, [])
 
   const handleLogoutClick = () => {
